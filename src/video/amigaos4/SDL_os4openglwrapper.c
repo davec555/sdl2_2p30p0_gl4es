@@ -23,7 +23,8 @@
 
 /* wrapper functions for MiniGL */
 
-#if SDL_VIDEO_DRIVER_AMIGAOS4
+//#if SDL_VIDEO_DRIVER_AMIGAOS4
+#if defined (SDL_VIDEO_OPENGL) && !defined (SDL_GL4ES)
 
 #include <GL/gl.h>
 #include <GL/glu.h>

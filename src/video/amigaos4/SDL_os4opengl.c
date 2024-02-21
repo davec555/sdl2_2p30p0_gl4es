@@ -20,7 +20,8 @@
 */
 #include "../../SDL_internal.h"
 
-#if SDL_VIDEO_DRIVER_AMIGAOS4
+//#if SDL_VIDEO_DRIVER_AMIGAOS4
+#if defined (SDL_VIDEO_OPENGL) && !defined (SDL_GL4ES)
 
 #include <proto/graphics.h>
 #include <proto/minigl.h>
