@@ -375,10 +375,15 @@ OS4_LoadGlLibrary(_THIS, const char * path)
         _this->gl_config.major_version,
         _this->gl_config.minor_version);
 
+#ifdef SDL_GL4ES
+    OS4_SetMiniGLFunctions(_this);
+    return OS4_GL_LoadLibrary(_this, path);
+#else
     if (OS4_IsMiniGL(_this)) {
         OS4_SetMiniGLFunctions(_this);
         return OS4_GL_LoadLibrary(_this, path);
     }
+#endif
 
 #if SDL_VIDEO_OPENGL_ES2
     if (OS4_IsOpenGLES2(_this)) {
